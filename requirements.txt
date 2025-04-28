@@ -83,7 +83,7 @@ sentence-transformers==4.1.0
 setuptools==79.0.1
 shellingham==1.5.4
 six==1.17.0
-smart-open==7.1.0
+smart-open<7.0.0,>=5.2.1
 smmap==5.0.2
 spacy==3.7.4
 spacy-legacy==3.0.12
