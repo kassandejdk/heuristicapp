@@ -28,13 +28,18 @@ Cette application permet d'analyser la similarité entre des documents textuels 
 
 # Télécharger les ressources NLTK nécessaires
 def init_nltk():
+    import os
+
+    nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
+    
+    if nltk_data_path not in nltk.data.path:
+        nltk.data.path.insert(0, nltk_data_path)
+
     try:
         nltk.data.find('tokenizers/punkt')
         nltk.data.find('corpora/stopwords')
     except LookupError:
-        nltk.download('punkt', quiet=True)
-        nltk.download('stopwords', quiet=True)
-        st.toast("Ressources NLTK téléchargées", icon="✅")
+        st.error("Erreur : les données NLTK sont absentes. Veuillez vérifier le dossier 'nltk_data'.")
 
 init_nltk()  
 
