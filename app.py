@@ -30,7 +30,7 @@ Cette application permet d'analyser la similarité entre des documents textuels 
 def init_nltk():
     import os
 
-    nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
+    nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
     
     if nltk_data_path not in nltk.data.path:
         nltk.data.path.insert(0, nltk_data_path)
@@ -409,26 +409,18 @@ with tab3:
     
     **Méthodes implémentées:**
     
-    1. **TF-IDF + Similarité Cosinus**: 
-       - Transforme les textes en vecteurs TF-IDF
-       - Calcule la similarité cosinus entre les vecteurs
-       
+    1. **TF-IDF**: 
+
     2. **Word2Vec**:
-       - Utilise des embeddings de mots pré-entraînés
-       - Calcule la similarité entre les moyennes des vecteurs de mots
        
     3. **BERT**:
-       - Utilise le modèle BERT pour obtenir des embeddings de phrases
-       - Calcule la similarité cosinus entre les embeddings
-       
+
     4. **Mots-clés fréquents**:
-       - Compare les mots les plus fréquents dans chaque document
-       - Calcule le chevauchement des mots-clés
-       
+
     **Options de prétraitement:**
     - Suppression des stop-words
     - Stemming des mots
+    - La lemmatisation
     - Filtrage par expression régulière
-    
-    **Note:** Pour utiliser Word2Vec, vous devez fournir un modèle pré-entraîné.
+
     """)
